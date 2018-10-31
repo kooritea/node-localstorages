@@ -1,0 +1,25 @@
+{
+  "name": "node-storages",
+  "version": "0.0.1",
+  "description": "localstorage in node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kooritea/node-localstorages.git"
+  },
+  "keywords": [
+    "localstorage",
+    "storage",
+    "node",
+    "timeout"
+  ],
+  "author": "kooritea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kooritea/node-localstorages/issues"
+  },
+  "homepage": "https://github.com/kooritea/node-localstorages#readme"
+}
