@@ -25,10 +25,47 @@ class Storage {
     this._saveFileData()
   }
 
+  setItemLife(key,life){
+    if(!this.data[key]){
+      this.data[key] = {}
+    }
+    this.data[key].life = this._format(life)
+    this._saveFileData()
+  }
+
   getItem(key){
     if(!this.data[key].timeout || this.data[key].timeout > (new Date()).valueOf()){
       return this.data[key].value
+    } else if(this.data[key].timeout){
+      // 数据已过期
+      this.data[key].value = ''
+      return ''
     }
+  }
+
+  // 将时间格式化位整数形式
+  _format(time){
+    let seconds = 0
+    while(time){
+      let info = time.match(/\d{1,}(d|h|m|s)/)
+      let sum = parseInt(info[0].substr(0,info[0].length-1))
+      switch(info[1]){
+        case('d'):
+          seconds += sum*86400000
+          break
+        case('h'):
+          seconds += sum*3600000
+          break
+        case('m'):
+          seconds += sum*60000
+          break
+        case('s'):
+          seconds += sum*1000
+          break
+      }
+      time = time.replace(new RegExp(info[0], "g"),'')
+    }
+    return seconds
   }
 
   _saveFileData(){

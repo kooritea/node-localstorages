@@ -6,7 +6,7 @@
 
 ### 为什么不使用现有的 node-storage ?
 
-因为我希望store有一个可选的超时机制
+因为我希望storage有一个可选的超时机制
 
 ```bash
 npm install node-storages --save
